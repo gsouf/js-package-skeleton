@@ -16,7 +16,10 @@ var plugins = [
 ];
 
 if (!IS_DEV) {
-  plugins.push(new UglifyJsPlugin({ minimize: true }));
+  plugins.push(new UglifyJsPlugin({
+    minimize: true,
+    sourceMap: true
+  }));
   outputFile += '.min.js';
 } else {
   outputFile += '.js';
@@ -44,8 +47,8 @@ var config = {
   },
 
   resolve: {
-    root: path.resolve('./src/javascripts'),
-    extensions: ['', '.js']
+    modules: [path.resolve('./src/javascripts')],
+    extensions: ['.js']
   },
   plugins: plugins
 };

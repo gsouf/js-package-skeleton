@@ -17,6 +17,7 @@ if (!IS_DEV) {
 
 module.exports = {
     entry: __dirname + '/src/stylesheets/base.scss',
+    devtool:"source-map",
     module: {
         loaders: [
             {
@@ -25,9 +26,6 @@ module.exports = {
 
             }
         ]
-    },
-    sassLoader: {
-        outputStyle: 'expanded'
     },
     output: {
         path: __dirname + '/build',
